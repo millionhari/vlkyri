@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VLKYRI Glitter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,400,400i,700,700i">
+  <link rel="stylesheet" href="./styles/vlkyri.min.css" type="text/css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <a href="https://vlkyri.com"><li><img class="logo" src="./images/vlkyri-white.png" alt=""></li></a>
+    </ul>
+  </nav>
+  <section class="section-video-bg section-hero">
+    <div class="container">
+      <div class="row center-xs">
+        <div class="col-xs-12">
+          <div class="view-products">
+            <h1>All-purpose glitter</h1>
+            <a href="#section-products"><p>View products</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="video" class="video">
+      <div class="hide-loader" style="
+      background-image:url('./images/black.jpg');
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      "></div>
+      <div class="video-overlay"></div>
+      <div id="hero-slide"></div>
+    </div>
+  </section>
+  <section class="section-contact">
+    <div class="container">
+      <div class="row center-xs">
+        <div class="col-xs-12">
+          <p>Have a problem with your order? Want to suggest a color for our next glitter? Email us at <a href="mailto:vlkyriglitter@gmail.com">vlkyriglitter@gmail.com</a>!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-products" id="section-products">
+    <div class="container">
+      <div class="row center-xs">
+        <div class="col-xs-12">
+          <h2 class="title">Chunky Glitter</h2>
+        </div>
+      </div>
+      <div class="row products">
+        <div class="products__product col-xs-12 col-md-6">
+          <a class="products__product-wrapper" href="https://www.amazon.com/dp/B07N38CY54">
+            <img src="./images/vlkyri-gold.png" alt="VLKYRI Gold Chunky Glitter">
+            <p class="products__product-title">VLKYRI Gold Chunky Glitter</p>
+            <p class="products__product-description">16g Chunky Glitter</p>
+          </a>
+        </div>
+        <div class="products__product col-xs-12 col-md-6">
+          <a class="products__product-wrapper" href="https://www.amazon.com/dp/B07N7W8KKP">
+            <img src="./images/vlkyri-silver.png" alt="VLKYRI Silver Chunky Glitter">
+            <p class="products__product-title">VLKYRI Silver Chunky Glitter</p>
+            <p class="products__product-description">16g Chunky Glitter</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script async src="https://www.youtube.com/iframe_api"></script>
+  <script>
+  var options = {
+    videoId: 'rs3hpMvL5Wk',
+    playerVars: {
+      playlist: 'rs3hpMvL5Wk',
+      mute: 1,
+      autoplay: 1,
+      loop: 1,
+      controls: 0,
+      start: 0,
+      showinfo: 0,
+      playsinline: 1,
+      modestbranding: 1,
+      fs: 0,
+      cc_load_policy: 0,
+      iv_load_policy: 3,
+      autohide: 0,
+      enablejsapi: 1
+    },
+    events: {
+      onReady: function(e) {
+        $(window).trigger('resize');
+        e.target.mute();
+        e.target.playVideo();
+      },
+      onStateChange: function(e) {
+        setInterval(function(){
+          if (e.target.getCurrentTime() > e.target.getDuration() - .5){
+            e.target.seekTo(.5);
+          }
+        }, 500);
+        if (e.data === 1) {
+          $('.hide-loader').addClass('fade');
+        }
+        if (e.data === 0) {
+          e.target.playVideo();
+        }
+
+      }
+    }
+  }
+
+  function onYouTubeIframeAPIReady() {
+    new YT.Player('hero-slide', options);
+  }
+  </script>
+</body>
+</html>
+
+<!-- API Key AIzaSyD7R9TqbtXfxwbyBLEDatd_GNKmaFtafpA -->

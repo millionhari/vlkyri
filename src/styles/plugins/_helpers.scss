@@ -1,0 +1,201 @@
+*,
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+// Use initial grid breakpoints instead of redefining them,
+// as set in _flexbox-grid.scss or _grid-variables.scss
+$breakpoint-sm: nth(nth($flexboxgrid-breakpoints, 1), 2);
+$breakpoint-md: nth(nth($flexboxgrid-breakpoints, 2), 2);
+$breakpoint-lg: nth(nth($flexboxgrid-breakpoints, 3), 2);
+
+/////
+// Mixin that targets mobile size only.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include xs() {
+//    font-size: 28px;
+//  }
+///
+@mixin xs {
+  @media only screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets up to small size.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include sm() {
+//    font-size: 28px;
+//  }
+///
+@mixin sm {
+  @media only screen and (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets small size and down.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include sm-and-down() {
+//    font-size: 28px;
+//  }
+///
+@mixin sm-and-down {
+  @media only screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets up to small size only.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include sm-only() {
+//    font-size: 28px;
+//  }
+///
+@mixin sm-only {
+  @media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets up to medium size.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include md() {
+//    font-size: 28px;
+//  }
+///
+@mixin md {
+  @media only screen and (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets medium size and down.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include md-and-down() {
+//    font-size: 28px;
+//  }
+///
+@mixin md-and-down {
+  @media only screen and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets medium size only.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include md-only() {
+//    font-size: 28px;
+//  }
+///
+@mixin md-only {
+  @media only screen and (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets up to large size.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include lg() {
+//    font-size: 28px;
+//  }
+///
+@mixin lg {
+  @media only screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+/////
+// Mixin that targets large size and down.
+//
+// @mixin
+// @section Breakpoints
+// @example
+//  @include lg-and-down() {
+//    font-size: 28px;
+//  }
+///
+@mixin lg-and-down {
+  @media only screen and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@include xs {
+  .hidden-on-mobile {
+    display: none !important;
+  }
+}
+
+@include xs {
+  .show-on-mobile {
+    display: block;
+  }
+}
+
+@include sm {
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+.container {
+  padding: 0 15px;
+
+  @media only screen and (min-width: $breakpoint-sm) {
+    padding: 0;
+  }
+
+  .container-no-padding {
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,98 @@
+section.section-video-bg div.video {
+  width: 100%;
+  position: absolute;
+  top: -74px;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #000000;
+}
+section.section-video-bg div.video div.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.touch section.section-video-bg div.video,
+.i18n-zh-hans section.section-video-bg div.video {
+  display: none;
+}
+
+section.section-video-bg div.video iframe {
+  max-width: none;
+  width: 2000px;
+  height: 1125px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+}
+
+.touch section.hero-background,
+.i18n-zh-hans section.hero-background {
+  width: 100%;
+  position: absolute;
+  top: -74px;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #000;
+}
+section.section-video-bg:before {
+  background: 100% 100% no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.hide-loader {
+  opacity: 1;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity .8s ease-in-out;
+}
+
+.section-hero {
+  height: 500px;
+  position: relative;
+
+  h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  p {
+    display: inline-block;
+    color: white;
+    font-size: 1em;
+    font-style: italic;
+    border: 2px solid white;
+    padding: 10px 20px;
+    transition: background-color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+    &:hover {
+      color: $color-gold;
+      background-color: white;
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+      transition: color .2s ease-in-out;
+    }
+  }
+
+  .view-products {
+    margin-top: 200px;
+  }
+}

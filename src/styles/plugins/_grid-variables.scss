@@ -1,0 +1,16 @@
+// Variables which override flexbox grid defaults
+$flexboxgrid-grid-columns: 12;
+$flexboxgrid-gutter-width: 30px;
+$flexboxgrid-outer-margin: 15px;
+
+// Breakpoint list
+// - name | breakpoint (em) | container width (rem)
+
+// sass-lint:disable indentation
+// Indentation rule is not taking comma separated list into consideration
+$flexboxgrid-breakpoints:
+  sm 48em 46rem,    // 767px / 736px
+  md 62.85em 61rem, // 1005px / 976px
+  lg 78.7em 77rem;  // 1260px / 1230px
+
+$flexboxgrid-max-width: 1230px;
